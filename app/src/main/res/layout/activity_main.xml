@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize"
     android:background="@color/colorPrimary">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -13,16 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:background="@color/colorPrimary"
         app:backgroundTint="@color/colorPrimary"
+        app:itemIconSize="30dp"
         app:itemIconTint="@drawable/bottom_navigation_selector"
         app:itemTextColor="@android:color/white"
         app:labelVisibilityMode="unlabeled"
-        app:itemIconSize="30dp"
-        app:itemRippleColor="@color/design_default_color_error"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
     <fragment
@@ -30,14 +29,49 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="55dp"
+        android:layout_marginTop="@dimen/app_bar_bottom_margin"
+        android:layout_marginBottom="@dimen/bottom_navigation_margin"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rl_app_bar"
+        app:layout_constraintVertical_bias="1.0"
+        app:navGraph="@navigation/mobile_navigation"
+        tools:ignore="FragmentTagUsage" />
+
+    <RelativeLayout
+        android:id="@+id/rl_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:navGraph="@navigation/mobile_navigation" />
+        android:padding="@dimen/app_bar_padding">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="@dimen/app_bar_width_height"
+            android:layout_height="@dimen/app_bar_width_height"
+            app:srcCompat="@drawable/businessman"
+            app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+            android:layout_alignParentStart="true"/>
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="@dimen/app_bar_width_height"
+            android:layout_height="@dimen/app_bar_width_height"
+            android:src="@drawable/ic_search"
+            android:padding="@dimen/ic_search_padding"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            tools:ignore="ContentDescription" />
+        <ImageView
+            android:layout_width="@dimen/app_bar_width_height"
+            android:layout_height="@dimen/app_bar_width_height"
+            android:src="@drawable/ic_add"
+            android:padding="@dimen/ic_add_padding"
+            android:background="@android:color/transparent"
+            android:layout_toStartOf="@id/iv_add"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

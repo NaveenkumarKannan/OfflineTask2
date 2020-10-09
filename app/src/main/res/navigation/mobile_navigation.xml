@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
-        android:id="@+id/navigation_logout"
+        android:id="@+id/navigation_signin"
         android:name="com.naveenkumar.offlinetask2.ui.notifications.NotificationsFragment"
-        android:label="@string/title_logout"
+        android:label="@string/title_signin"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

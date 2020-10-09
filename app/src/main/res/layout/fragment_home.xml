@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,18 +8,78 @@
     android:background="@color/colorPrimary"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/home_margin_start"
+            android:layout_marginEnd="@dimen/home_margin_end"
+            android:layout_marginTop="@dimen/home_margin_top">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/projects"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/projects_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/projects_21"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/home_text_size"
+                android:layout_marginTop="5dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/recently_updated_margin_top"
+                android:paddingTop="@dimen/recently_updated_padding"
+                android:paddingBottom="@dimen/recently_updated_padding">
+
+                <TextView
+                    android:id="@+id/tv_recently_updated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recently_updated"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/home_text_size"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_down"
+                    android:layout_toEndOf="@id/tv_recently_updated"
+                    android:layout_marginStart="@dimen/_5dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_list"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="@color/gray"/>
+
+        <include layout="@layout/row_layout"/>
+        <include layout="@layout/row_layout"/>
+        <include layout="@layout/row_layout"/>
+        <include layout="@layout/row_layout"/>
+        <include layout="@layout/row_layout"/>
+        <include layout="@layout/row_layout"/>
+        <include layout="@layout/row_layout"/>
+        <include layout="@layout/row_layout"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

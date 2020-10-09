@@ -2,4 +2,29 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- activity_main.xml-->
+    <dimen name="bottom_navigation_margin">55dp</dimen>
+
+    <dimen name="app_bar_width_height">40dp</dimen>
+    <dimen name="app_bar_padding">10dp</dimen>
+    <dimen name="app_bar_bottom_margin">50dp</dimen>
+
+    <dimen name="ic_search_padding">5dp</dimen>
+    <dimen name="ic_add_padding">3dp</dimen>
+
+    <!-- fragment_home.xml-->
+    <dimen name="home_margin_top">20sp</dimen>
+    <dimen name="home_margin_start">45dp</dimen>
+    <dimen name="home_margin_end">11dp</dimen>
+    <dimen name="projects_text_size">25sp</dimen>
+    <dimen name="home_text_size">15sp</dimen>
+    <dimen name="recently_updated_margin_top">25sp</dimen>
+    <dimen name="recently_updated_padding">11dp</dimen>
+    <dimen name="_5dp">5dp</dimen>
+
+    <!-- row_layout.xml-->
+    <dimen name="row_text_size">12sp</dimen>
+    <dimen name="row_title_text_size">17sp</dimen>
+
 </resources>
