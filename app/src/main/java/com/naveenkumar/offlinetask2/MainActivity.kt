@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        Utility.showProgress(this)
-        Handler(Looper.myLooper()!!).postDelayed({ Utility.close() }, 2 * 1000.toLong())
+        //Utility.showProgress(this)
+        //Handler(Looper.myLooper()!!).postDelayed({ Utility.close() }, 2 * 1000.toLong())
     }
 
     override fun onBackPressed() {

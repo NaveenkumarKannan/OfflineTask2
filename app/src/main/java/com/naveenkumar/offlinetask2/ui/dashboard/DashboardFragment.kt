@@ -26,7 +26,6 @@ class DashboardFragment : Fragment() {
         val textView: TextView = root.findViewById(R.id.text_dashboard)
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-            Utility.log(it)
         })
         return root
     }

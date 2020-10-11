@@ -2,15 +2,12 @@ package com.naveenkumar.offlinetask2.adapters
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.core.view.marginStart
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.naveenkumar.offlinetask2.R
 import com.naveenkumar.offlinetask2.model.Data
 import com.naveenkumar.offlinetask2.utils.Utility
@@ -33,7 +30,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
 
             is DataViewHolder -> {
                 holder.bind(items[position],holder.itemView.context)
-                Utility.log(items.joinToString())
             }
 
         }

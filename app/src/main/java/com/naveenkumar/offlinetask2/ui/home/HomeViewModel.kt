@@ -133,5 +133,5 @@ class HomeViewModel : ViewModel() {
         )
         value = list
     }
-    val text: LiveData<List<Data>> = listData
+    val liveData: LiveData<List<Data>> = listData
 }

@@ -22,6 +22,8 @@
     <dimen name="recently_updated_margin_top">25sp</dimen>
     <dimen name="recently_updated_padding">11dp</dimen>
     <dimen name="_5dp">5dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_15dp">15dp</dimen>
 
     <!-- row_layout.xml-->
     <dimen name="row_text_size">12sp</dimen>

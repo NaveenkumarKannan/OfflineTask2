@@ -26,7 +26,6 @@ class DownloadsFragment : Fragment() {
         val textView: TextView = root.findViewById(R.id.text_downloads)
         downloadsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-            Utility.log(it)
         })
         return root
     }
