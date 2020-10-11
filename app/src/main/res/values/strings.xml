@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_signin">Sign In</string>
+    <string name="title_downloads">Downloads</string>
     <string name="projects">Projects</string>
     <string name="projects_21">21 projects</string>
     <string name="recently_updated">Recently updated</string>
@@ -11,4 +11,7 @@
     <string name="company">Company</string>
     <string name="hyphen">-</string>
     <string name="yesterday">Yesterday</string>
+
+    <string name="items_count">%1$d items</string>
+    <string name="images_count">+%1$d</string>
 </resources>

@@ -5,4 +5,13 @@
     <color name="colorAccent">#dddddd</color>
 
     <color name="gray">#7B7C88</color>
+    <color name="line_gray">#417B7C88</color>
+
+    <color name="violet">#50673FD1</color>
+    <color name="green">#5030CF30</color>
+    <color name="blue">#502FC5DC</color>
+    <color name="orange">#50D38530</color>
+    <color name="red">#50C12020</color>
+    <color name="pink">#50E630E6</color>
+
 </resources>

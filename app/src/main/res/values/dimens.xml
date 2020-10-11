@@ -17,7 +17,7 @@
     <dimen name="home_margin_top">20sp</dimen>
     <dimen name="home_margin_start">45dp</dimen>
     <dimen name="home_margin_end">11dp</dimen>
-    <dimen name="projects_text_size">25sp</dimen>
+    <dimen name="projects_text_size">29sp</dimen>
     <dimen name="home_text_size">15sp</dimen>
     <dimen name="recently_updated_margin_top">25sp</dimen>
     <dimen name="recently_updated_padding">11dp</dimen>
@@ -26,5 +26,10 @@
     <!-- row_layout.xml-->
     <dimen name="row_text_size">12sp</dimen>
     <dimen name="row_title_text_size">17sp</dimen>
+    <dimen name="row_image_width_height">95dp</dimen>
+    <dimen name="row_image_padding">5dp</dimen>
 
+    <dimen name="corner_size">12dp</dimen>
+
+    <item name="line_view_height" type="dimen">0.05dp</item>
 </resources>

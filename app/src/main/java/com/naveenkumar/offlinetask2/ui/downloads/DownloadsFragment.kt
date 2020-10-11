@@ -1,4 +1,4 @@
-package com.naveenkumar.offlinetask2.ui.dashboard
+package com.naveenkumar.offlinetask2.ui.downloads
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,20 +11,20 @@ import androidx.lifecycle.ViewModelProvider
 import com.naveenkumar.offlinetask2.utils.Utility
 import com.naveenkumar.offlinetask2.R
 
-class DashboardFragment : Fragment() {
+class DownloadsFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var downloadsViewModel: DownloadsViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        downloadsViewModel =
+                ViewModelProvider(this).get(DownloadsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_downloads, container, false)
+        val textView: TextView = root.findViewById(R.id.text_downloads)
+        downloadsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
             Utility.log(it)
         })

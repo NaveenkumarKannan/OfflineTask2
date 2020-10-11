@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -27,7 +27,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/projects"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/projects_text_size"/>
+                android:textSize="@dimen/projects_text_size"
+                android:textStyle="bold"
+                android:fontFamily="@font/quicksand"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,7 +37,8 @@
                 android:text="@string/projects_21"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/home_text_size"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/quicksand"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -50,7 +53,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/recently_updated"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/home_text_size"/>
+                    android:textSize="@dimen/home_text_size"
+                    android:fontFamily="@font/quicksand"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,16 +74,26 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/gray"/>
+            android:layout_height="@dimen/line_view_height"
+            android:background="@color/line_gray"/>
 
-        <include layout="@layout/row_layout"/>
-        <include layout="@layout/row_layout"/>
-        <include layout="@layout/row_layout"/>
-        <include layout="@layout/row_layout"/>
-        <include layout="@layout/row_layout"/>
-        <include layout="@layout/row_layout"/>
-        <include layout="@layout/row_layout"/>
-        <include layout="@layout/row_layout"/>
+        <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+            android:id="@+id/shimmer_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:shimmer_demo_child_count="10"
+            app:shimmer_demo_grid_child_count="2"
+            app:shimmer_demo_layout="@layout/row_demo_layout"
+            app:shimmer_demo_layout_manager_type="grid"
+            app:shimmer_demo_angle="20"
+            tools:listitem="@layout/row_layout"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recycler_view"
+            tools:listitem="@layout/row_layout"
+            android:visibility="visible"/>
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</LinearLayout>
