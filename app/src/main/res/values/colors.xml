@@ -13,5 +13,6 @@
     <color name="orange">#50D38530</color>
     <color name="red">#50C12020</color>
     <color name="pink">#50E630E6</color>
-
+    <color name="swipe_color1">#1d214c</color>
+    <color name="swipe_color2">#5451eb</color>
 </resources>

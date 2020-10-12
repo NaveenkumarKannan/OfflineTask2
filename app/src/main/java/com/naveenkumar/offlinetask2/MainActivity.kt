@@ -27,9 +27,6 @@ class MainActivity : AppCompatActivity() {
         //val appBarConfiguration = AppBarConfiguration(setOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,R.id.navigation_downloads))
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        //Utility.showProgress(this)
-        //Handler(Looper.myLooper()!!).postDelayed({ Utility.close() }, 2 * 1000.toLong())
     }
 
     override fun onBackPressed() {

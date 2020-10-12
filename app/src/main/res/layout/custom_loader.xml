@@ -7,10 +7,11 @@
 
     <ImageView
         android:id="@+id/img_loader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:src="@drawable/fog"
         android:alpha="0.3"
+        android:scaleType="fitXY"
         tools:ignore="ContentDescription"
         android:background="@android:color/transparent"/>
 </LinearLayout>

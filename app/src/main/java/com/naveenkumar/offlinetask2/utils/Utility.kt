@@ -11,6 +11,7 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -47,29 +48,30 @@ class Utility {
             }
         }
 
-        fun options(): RequestOptions {
-            return RequestOptions()
-                .centerCrop()
-                .placeholder(R.drawable.businessman)
-                .error(R.drawable.businessman)
-        }
-
         fun loadImage(context: Context, url: String, imageView: ImageView) {
             Glide.with(context)
-                .applyDefaultRequestOptions(options())
+                .applyDefaultRequestOptions(RequestOptions())
                 .load(url)
                 .into(imageView)
         }
 
-
+        fun loadImage(context: Context, id: Int, imageView: ImageView) {
+            Glide.with(context)
+                .applyDefaultRequestOptions(RequestOptions()
+                    .override(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT))
+                .load(id)
+                .into(imageView)
+        }
         var dialog: Dialog? = null
+
         fun showProgress(context: Context) {
             dialog = Dialog(context)
             dialog!!.setContentView(R.layout.custom_loader)
-            dialog!!.window
-                ?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog!!.window?.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
+            dialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog!!.window?.setDimAmount(0.0f)
             val image: ImageView = dialog!!.findViewById(R.id.img_loader)
-            Glide.with(context).load(R.drawable.fog).into(image)
+            loadImage(context, R.drawable.fog, image)
             dialog!!.setCancelable(false)
             dialog!!.show()
         }

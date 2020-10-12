@@ -6,6 +6,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -33,41 +34,47 @@ class HomeFragment : Fragment() {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
-        initRecyclerView(root)
-        addDataSet()
+        recyclerView = root.findViewById(R.id.recycler_view)
+        srl = root.findViewById(R.id.srl)
+        shimmerFrameLayout = root.findViewById(R.id.shimmer_frame_layout)
+        init(root)
 
         return root
+    }
+
+    private fun init(root: View) {
+        initRecyclerView(root)
+        addDataSet()
     }
 
     private fun addDataSet() {
         homeViewModel.liveData.observe(viewLifecycleOwner, Observer {
             Handler(Looper.myLooper()!!).postDelayed({
-                srl.isRefreshing = false
+                recyclerAdapter.submitList(it)
+                Utility.close()
                 shimmerFrameLayout.stopShimmer()
                 shimmerFrameLayout.visibility = View.GONE
                 recyclerView.visibility = View.VISIBLE
-                recyclerAdapter.submitList(it)
-            }, 5 * 1000.toLong())
+            }, 3 * 1000.toLong())
         })
     }
 
     private fun initRecyclerView(view: View) {
-
-        recyclerView = view.findViewById(R.id.recycler_view)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             recyclerAdapter = RecyclerAdapter()
             adapter = recyclerAdapter
         }
-        srl = view.findViewById(R.id.srl)
+        srl.setProgressBackgroundColorSchemeResource(R.color.swipe_color1)
+        srl.setColorSchemeColors(view.context.resources.getColor(R.color.swipe_color2))
         srl.setOnRefreshListener {
-            srl.isRefreshing = true
-            shimmerFrameLayout.startShimmer()
-            shimmerFrameLayout.visibility = View.VISIBLE
-            recyclerView.visibility = View.GONE
-            addDataSet()
+            srl.isRefreshing = false
+            init(view)
         }
-        shimmerFrameLayout = view.findViewById(R.id.shimmer_frame_layout)
+        Utility.showProgress(view.context)
         shimmerFrameLayout.startShimmer()
+        shimmerFrameLayout.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
+
     }
 }
