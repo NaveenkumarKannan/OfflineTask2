@@ -14,6 +14,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.gif.GifDrawable
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.naveenkumar.offlinetask2.R
 
@@ -58,9 +60,20 @@ class Utility {
         fun loadImage(context: Context, id: Int, imageView: ImageView) {
             Glide.with(context)
                 .applyDefaultRequestOptions(RequestOptions()
-                    .override(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT))
+                )//.override(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT))
                 .load(id)
                 .into(imageView)
+        }
+        fun loadImage(context: Context, id: Int, imageView: ImageView, listener: RequestListener<GifDrawable>) {
+            Glide.with(context)
+                .asGif()
+                .load(id)
+                .listener(listener)
+                .into(imageView)
+        }
+        fun clearImage(context: Context, imageView: ImageView) {
+            Glide.with(context)
+                .clear(imageView)
         }
         var dialog: Dialog? = null
 
@@ -71,7 +84,8 @@ class Utility {
             dialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog!!.window?.setDimAmount(0.0f)
             val image: ImageView = dialog!!.findViewById(R.id.img_loader)
-            loadImage(context, R.drawable.fog, image)
+            //loadImage(context, R.drawable.fog, image)
+            loadImage(context, R.drawable.fog3, image)
             dialog!!.setCancelable(false)
             dialog!!.show()
         }

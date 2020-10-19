@@ -23,6 +23,8 @@ class SwipeRefreshLayout @JvmOverloads constructor(
     FrameLayout(context, attrs, defStyleAttr) {
     private var mHeaderBackColor = 0xffc8e7ff
     private var mHeaderForeColor = 0xff1a1c34
+    /*private var mHeaderBackColor = 0xff1a1c34
+    private var mHeaderForeColor = 0xffc8e7ff*/
     private var mHeaderCircleSmaller = 6
     private var mPullHeight = 0f
     private var mHeaderHeight = 0f
@@ -31,8 +33,10 @@ class SwipeRefreshLayout @JvmOverloads constructor(
     private var mIsRefreshing = false
     private var mTouchStartY = 0f
     private var mTouchCurY = 0f
-    private lateinit var mUpBackAnimator: ValueAnimator
+    /*private lateinit var mUpBackAnimator: ValueAnimator
+    private lateinit var mUpTopAnimator: ValueAnimator*/
     private lateinit var mUpTopAnimator: ValueAnimator
+    private lateinit var mUpBackAnimator: ValueAnimator
     private val decelerateInterpolator = DecelerateInterpolator(10F)
 
     private fun init(

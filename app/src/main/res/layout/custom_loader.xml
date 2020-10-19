@@ -9,7 +9,7 @@
         android:id="@+id/img_loader"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/fog"
+        android:src="@drawable/fog3"
         android:alpha="0.3"
         android:scaleType="fitXY"
         tools:ignore="ContentDescription"

@@ -5,4 +5,15 @@
         <attr name="AniForeColor" format="color" />
         <attr name="CircleSmaller" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="IGRefreshLayout">
+        <attr name="offsetTop" format="integer"/>
+        <attr name="customBar" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="PullRefreshLayout">
+        <attr name="refreshColors" format="reference"/>
+        <attr name="refreshColor" format="reference"/>
+    </declare-styleable>
+
 </resources>

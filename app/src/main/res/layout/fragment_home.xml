@@ -1,123 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.naveenkumar.offlinetask2.swiperefresh.SwipeRefreshLayout
-    android:id="@+id/srl"
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".ui.home.HomeFragment"
-    android:paddingTop="@dimen/_5dp"
-    android:paddingBottom="@dimen/_5dp">
-
-    <androidx.core.widget.NestedScrollView
+    tools:context=".ui.home.HomeFragment">
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <LinearLayout
+        <com.naveenkumar.offlinetask2.swiperefresh.IGRefreshLayout
+            android:id="@+id/srl"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true">
+            app:offsetTop="95"
+            app:customBar="false">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="@dimen/home_margin_start"
-                android:layout_marginEnd="@dimen/home_margin_end"
-                android:layout_marginTop="@dimen/home_margin_top">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/projects"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/projects_text_size"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/quicksand"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/projects_21"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/home_text_size"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/quicksand"/>
-
-                <RelativeLayout
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/recently_updated_margin_top"
-                    android:paddingTop="@dimen/recently_updated_padding"
-                    android:paddingBottom="@dimen/recently_updated_padding">
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/app_bar_bottom_margin"
+                    android:paddingTop="@dimen/_1dp">
+                    <include layout="@layout/content_main"/>
 
-                    <TextView
-                        android:id="@+id/tv_recently_updated"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/recently_updated"
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/home_text_size"
-                        android:fontFamily="@font/quicksand"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_down"
-                        android:layout_toEndOf="@id/tv_recently_updated"
-                        android:layout_marginStart="@dimen/_5dp"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_list"
-                        android:layout_alignParentEnd="true"/>
-
-                </RelativeLayout>
-
+                </androidx.core.widget.NestedScrollView>
 
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/line_view_height"
-                android:background="@color/line_gray"/>
-
-            <com.facebook.shimmer.ShimmerFrameLayout
-                android:id="@+id/shimmer_frame_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="visible">
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <include layout="@layout/row_placeholder_layout"/>
-                        <include layout="@layout/row_placeholder_layout"/>
-                        <include layout="@layout/row_placeholder_layout"/>
-                        <include layout="@layout/row_placeholder_layout"/>
-                        <include layout="@layout/row_placeholder_layout"/>
-
-                        <include layout="@layout/row_placeholder_layout"/>
-                        <include layout="@layout/row_placeholder_layout"/>
-                        <include layout="@layout/row_placeholder_layout"/>
-                        <include layout="@layout/row_placeholder_layout"/>
-                        <include layout="@layout/row_placeholder_layout"/>
-                    </LinearLayout>
-                </ScrollView>
-            </com.facebook.shimmer.ShimmerFrameLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/recycler_view"
-                tools:listitem="@layout/row_layout"
-                android:visibility="gone"/>
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-</com.naveenkumar.offlinetask2.swiperefresh.SwipeRefreshLayout>
+        </com.naveenkumar.offlinetask2.swiperefresh.IGRefreshLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/app_bar_padding">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="@dimen/app_bar_width_height"
+            android:layout_height="@dimen/app_bar_width_height"
+            app:srcCompat="@drawable/businessman"
+            app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+            android:layout_alignParentStart="true"/>
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="@dimen/app_bar_width_height"
+            android:layout_height="@dimen/app_bar_width_height"
+            android:src="@drawable/ic_search"
+            android:padding="@dimen/ic_search_padding"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            tools:ignore="ContentDescription" />
+        <ImageView
+            android:layout_width="@dimen/app_bar_width_height"
+            android:layout_height="@dimen/app_bar_width_height"
+            android:src="@drawable/ic_add"
+            android:padding="@dimen/ic_add_padding"
+            android:background="@android:color/transparent"
+            android:layout_toStartOf="@id/iv_add"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+</RelativeLayout>
